@@ -15,7 +15,8 @@ class ChangePage extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: new Text("Setting"),
-            backgroundColor: stateColor.color,
+            backgroundColor:
+                (stateColor is ColorPicker) ? stateColor.color : Colors.green,
           ),
           body: new Center(
             child: new Column(
@@ -25,10 +26,13 @@ class ChangePage extends StatelessWidget {
                   builder: (context, stateNum) {
                     return GestureDetector(
                       onTap: () {
-                        cblocCounter.add(Increament());
+                        context.read<CounterBloc>().add(Increament(1));
+                        //cblocCounter.add(Increament(1));
                       },
                       child: Text(
-                        stateNum.value.toString(),
+                        (stateNum is CounterValue)
+                            ? stateNum.value.toString()
+                            : "-",
                         style: new TextStyle(
                             fontSize: 30.0, fontWeight: FontWeight.w600),
                       ),
@@ -43,7 +47,8 @@ class ChangePage extends StatelessWidget {
                   children: [
                     new ElevatedButton(
                       onPressed: () {
-                        cblocColor.add(ToAmber());
+                        context.read<ColorBloc>().add(ToAmber());
+                        // cblocColor.add(ToAmber());
                       },
                       child: new Text(""),
                       style: ElevatedButton.styleFrom(
@@ -53,7 +58,8 @@ class ChangePage extends StatelessWidget {
                     ),
                     new ElevatedButton(
                       onPressed: () {
-                        cblocColor.add(ToBlue());
+                        context.read<ColorBloc>().add(ToBlue());
+                        // cblocColor.add(ToBlue());
                       },
                       child: new Text(""),
                       style: ElevatedButton.styleFrom(
@@ -63,7 +69,8 @@ class ChangePage extends StatelessWidget {
                     ),
                     new ElevatedButton(
                       onPressed: () {
-                        cblocColor.add(ToRed());
+                        context.read<ColorBloc>().add(ToRed());
+                        // cblocColor.add(ToRed());
                       },
                       child: new Text(""),
                       style: ElevatedButton.styleFrom(

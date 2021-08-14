@@ -1,8 +1,16 @@
 part of 'counter_bloc.dart';
 
 @immutable
-abstract class CounterEvent {}
+abstract class CounterEvent {
+  final int amount;
 
-class Increament extends CounterEvent {}
+  CounterEvent(this.amount);
+}
 
-class Decreament extends CounterEvent {}
+class Increament extends CounterEvent {
+  Increament(int amount) : super(amount);
+}
+
+class Decreament extends CounterEvent {
+  Decreament(int amount) : super(amount);
+}

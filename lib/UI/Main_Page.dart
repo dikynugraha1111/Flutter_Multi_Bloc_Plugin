@@ -21,7 +21,9 @@ class _MainPageState extends State<MainPage> {
         return Scaffold(
           appBar: AppBar(
             title: new Text("MultiBloc Menggunakan Plugin"),
-            backgroundColor: stateColorMain.color,
+            backgroundColor: (stateColorMain is ColorPicker)
+                ? stateColorMain.color
+                : Colors.green,
           ),
           body: Center(
             child: new Column(
@@ -30,7 +32,9 @@ class _MainPageState extends State<MainPage> {
                 new BlocBuilder<CounterBloc, CounterState>(
                   builder: (context, stateNumMain) {
                     return Text(
-                      stateNumMain.value.toString(),
+                      (stateNumMain is CounterValue)
+                          ? stateNumMain.value.toString()
+                          : "-",
                       style: new TextStyle(
                           fontSize: 30.0, fontWeight: FontWeight.w600),
                     );
