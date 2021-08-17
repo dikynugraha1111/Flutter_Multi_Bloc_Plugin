@@ -22,10 +22,10 @@ class _MainPageState extends State<MainPage> {
       builder: (context, stateColorMain) {
         return Scaffold(
           appBar: AppBar(
-            title: new Text("MultiBloc Menggunakan Plugin"),
+            title: new Text("Multi-Bloc, FireBase"),
             backgroundColor: (stateColorMain is ColorPicker)
                 ? stateColorMain.color
-                : Colors.green,
+                : Colors.red[700],
           ),
           body: Center(
             child: new Column(
@@ -46,25 +46,42 @@ class _MainPageState extends State<MainPage> {
                   height: 20.0,
                 ),
                 new ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.white, shadowColor: Colors.black),
                   onPressed: () {
                     Navigator.of(context).push(
                         new MaterialPageRoute(builder: (BuildContext context) {
                       return ChangePage();
                     }));
                   },
-                  child: new Text("Bloc"),
+                  child: new Text(
+                    "Bloc",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 17.0),
+                  ),
                 ),
+
                 new SizedBox(
                   height: 20.0,
                 ),
                 new ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.white, shadowColor: Colors.black),
                   onPressed: () {
                     Navigator.of(context).push(
                         new MaterialPageRoute(builder: (BuildContext context) {
                       return FireBase();
                     }));
                   },
-                  child: new Text("Firebase"),
+                  child: new Text(
+                    "Firebase",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 17.0),
+                  ),
                 )
 
                 // new Row(

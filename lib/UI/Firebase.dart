@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterplugin/UI/Item_Card.dart';
 
 class FireBase extends StatefulWidget {
   const FireBase({Key? key}) : super(key: key);
@@ -10,16 +12,35 @@ class FireBase extends StatefulWidget {
 class _FireBaseState extends State<FireBase> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference flutterV2 = firestore.collection("flutterV2");
+
     return Scaffold(
       appBar: new AppBar(
         title: new Text("FireBase"),
       ),
       body: new Stack(
         children: [
-          ListView(children: []),
+          ListView(children: [
+            //note: Menggunakan 1x Request Data
+            FutureBuilder<QuerySnapshot>(
+                future: flutterV2.get(),
+                builder: (_, snap) {
+                  if (snap.hasData) {
+                    return Column(
+                      children: snap.data.docs
+                          .map((e) =>
+                              ItemCard(e.data()["name"], e.data()["age"]))
+                          .toList(),
+                    );
+                  } else {
+                    return Text("Onloading");
+                  }
+                }),
+          ]),
           Align(
               alignment: Alignment.bottomCenter,
               child: Container(
@@ -41,11 +62,11 @@ class _FireBaseState extends State<FireBase> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextField(
-                            //controller: nameController,
+                            controller: nameController,
                             decoration: InputDecoration(hintText: "Name"),
                           ),
                           TextField(
-                            //controller: ageController,
+                            controller: ageController,
                             decoration: InputDecoration(hintText: "Age"),
                             keyboardType: TextInputType.number,
                           ),
@@ -61,7 +82,14 @@ class _FireBaseState extends State<FireBase> {
                               primary: Colors.blueAccent,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(4))),
-                          onPressed: () {},
+                          onPressed: () {
+                            flutterV2.add({
+                              "name": nameController.text,
+                              "age": int.tryParse(ageController.text) ?? 0
+                            });
+                            nameController.text = "";
+                            ageController.text = "";
+                          },
                           child: new Text("Add Data")),
 
                       // RaisedButton(
