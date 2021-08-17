@@ -4,6 +4,8 @@ import 'package:flutterplugin/UI/Change_Pange.dart';
 import 'package:flutterplugin/bloc/color_bloc.dart';
 import 'package:flutterplugin/bloc/counter_bloc.dart';
 
+import 'Firebase.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -43,14 +45,26 @@ class _MainPageState extends State<MainPage> {
                 new SizedBox(
                   height: 20.0,
                 ),
-                new FloatingActionButton(
+                new ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(
                         new MaterialPageRoute(builder: (BuildContext context) {
                       return ChangePage();
                     }));
                   },
-                  child: new Text("Click"),
+                  child: new Text("Bloc"),
+                ),
+                new SizedBox(
+                  height: 20.0,
+                ),
+                new ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        new MaterialPageRoute(builder: (BuildContext context) {
+                      return FireBase();
+                    }));
+                  },
+                  child: new Text("Firebase"),
                 )
 
                 // new Row(
