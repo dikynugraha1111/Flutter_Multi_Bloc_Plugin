@@ -12,10 +12,10 @@ class FireBase extends StatefulWidget {
 class _FireBaseState extends State<FireBase> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
     CollectionReference flutterV2 = firestore.collection("flutterV2");
 
     return Scaffold(
@@ -31,10 +31,12 @@ class _FireBaseState extends State<FireBase> {
                 builder: (_, snap) {
                   if (snap.hasData) {
                     return Column(
-                      children: snap.data.docs
-                          .map((e) =>
-                              ItemCard(e.data()["name"], e.data()["age"]))
-                          .toList(),
+                      children:
+                          snap.data!.docs.map((DocumentSnapshot document) {
+                        Map<String, dynamic> data2 =
+                            document.data()! as Map<String, dynamic>;
+                        return ItemCard(data2["name"], data2["age"]);
+                      }).toList(),
                     );
                   } else {
                     return Text("Onloading");

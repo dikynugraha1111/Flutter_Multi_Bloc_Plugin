@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ItemCard extends StatefulWidget {
-  const ItemCard({Key? key, this.name = "", this.age = 0}) : super(key: key);
+class ItemCard extends StatelessWidget {
   final String name;
   final int age;
-  @override
-  _ItemCardState createState() => _ItemCardState();
-}
+  //// Pointer to Update Function
+  //final Function onUpdate;
+  //// Pointer to Delete Function
+  //final Function onDelete;
 
-class _ItemCardState extends State<ItemCard> {
+  ItemCard(this.name, this.age);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +19,7 @@ class _ItemCardState extends State<ItemCard> {
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.blueAccent)),
+          border: Border.all(color: Colors.blue)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -27,12 +28,12 @@ class _ItemCardState extends State<ItemCard> {
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
-                child: Text(widget.name,
+                child: Text(name,
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600, fontSize: 16)),
               ),
               Text(
-                "${widget.age} years old",
+                "$age years old",
                 style: GoogleFonts.poppins(),
               )
             ],
