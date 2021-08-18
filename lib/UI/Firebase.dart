@@ -25,9 +25,26 @@ class _FireBaseState extends State<FireBase> {
       body: new Stack(
         children: [
           ListView(children: [
-            //note: Menggunakan 1x Request Data
-            FutureBuilder<QuerySnapshot>(
-                future: flutterV2.get(),
+            //! Menggunakan 1x Request Data
+            // FutureBuilder<QuerySnapshot>(
+            //     future: flutterV2.get(),
+            //     builder: (_, snap) {
+            //       if (snap.hasData) {
+            //         return Column(
+            //           children:
+            //               snap.data!.docs.map((DocumentSnapshot document) {
+            //             Map<String, dynamic> data2 =
+            //                 document.data()! as Map<String, dynamic>;
+            //             return ItemCard(data2["name"], data2["age"]);
+            //           }).toList(),
+            //         );
+            //       } else {
+            //         return Text("Onloading");
+            //       }
+            //     }),
+            //! Sync data
+            StreamBuilder<QuerySnapshot>(
+                stream: flutterV2.snapshots(),
                 builder: (_, snap) {
                   if (snap.hasData) {
                     return Column(
