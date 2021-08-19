@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterplugin/UI/Item_Card.dart';
+import 'package:flutterplugin/UI/Update_Page.dart';
 
 class FireBase extends StatefulWidget {
   const FireBase({Key? key}) : super(key: key);
@@ -55,7 +56,15 @@ class _FireBaseState extends State<FireBase> {
                         return ItemCard(
                           data2["name"],
                           data2["age"],
-                          onUpdate: () {},
+                          onUpdate: () {
+                            Navigator.of(context).push(new MaterialPageRoute(
+                                builder: (BuildContext context) {
+                              return UpdatePage(
+                                  id: document.id,
+                                  name: data2["name"],
+                                  age: data2["age"]);
+                            }));
+                          },
                           onDelete: () {},
                         );
                       }).toList(),
