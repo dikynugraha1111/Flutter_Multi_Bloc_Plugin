@@ -57,13 +57,18 @@ class _UpdatePageState extends State<UpdatePage> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4))),
               onPressed: () {
-                flutterV2.doc(widget.id).update({
-                  "name": nameEditController.text,
-                  "age": int.tryParse(ageEditController.text) ?? 0
-                }).then((value) => Navigator.of(context).pushReplacement(
-                        new MaterialPageRoute(builder: (BuildContext context) {
-                      return FireBase();
-                    })));
+                flutterV2
+                    .doc(widget.id)
+                    .update({
+                      "name": nameEditController.text,
+                      "age": int.tryParse(ageEditController.text) ?? 0
+                    })
+                    .then((value) => Navigator.of(context).pushReplacement(
+                            new MaterialPageRoute(
+                                builder: (BuildContext context) {
+                          return FireBase();
+                        })))
+                    .catchError((catchError) => print(catchError.toString()));
                 //! Ini Buat Add
                 // flutterV2.add({
                 //   "name": nameEditController.text,

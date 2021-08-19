@@ -65,7 +65,12 @@ class _FireBaseState extends State<FireBase> {
                                   age: data2["age"]);
                             }));
                           },
-                          onDelete: () {},
+                          onDelete: () {
+                            flutterV2
+                                .doc(document.id)
+                                .delete()
+                                .then((value) => print("Delete Successful"));
+                          },
                         );
                       }).toList(),
                     );
