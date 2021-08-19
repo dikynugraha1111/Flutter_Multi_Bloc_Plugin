@@ -4,12 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 class ItemCard extends StatelessWidget {
   final String name;
   final int age;
-  //// Pointer to Update Function
-  //final Function onUpdate;
-  //// Pointer to Delete Function
-  //final Function onDelete;
 
-  ItemCard(this.name, this.age);
+  //// Pointer to Update Function
+  final Function onUpdate;
+  //// Pointer to Delete Function
+  final Function onDelete;
+
+  ItemCard(this.name, this.age,
+      {required this.onUpdate, required this.onDelete});
 
   @override
   Widget build(BuildContext context) {
@@ -43,31 +45,35 @@ class ItemCard extends StatelessWidget {
               SizedBox(
                 height: 40,
                 width: 60,
-                child: RaisedButton(
-                    shape: CircleBorder(),
-                    color: Colors.green[900],
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: CircleBorder(),
+                      primary: Colors.green[900],
+                    ),
                     child: Center(
                         child: Icon(
                       Icons.arrow_upward,
                       color: Colors.white,
                     )),
                     onPressed: () {
-                      //if (onUpdate != null) onUpdate();
+                      if (onUpdate != null) onUpdate();
                     }),
               ),
               SizedBox(
                 height: 40,
                 width: 60,
-                child: RaisedButton(
-                    shape: CircleBorder(),
-                    color: Colors.red[900],
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: CircleBorder(),
+                      primary: Colors.red[900],
+                    ),
                     child: Center(
                         child: Icon(
                       Icons.delete,
                       color: Colors.white,
                     )),
                     onPressed: () {
-                      //if (onDelete != null) onDelete();
+                      if (onDelete != null) onDelete();
                     }),
               )
             ],

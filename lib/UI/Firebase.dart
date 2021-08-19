@@ -52,7 +52,12 @@ class _FireBaseState extends State<FireBase> {
                           snap.data!.docs.map((DocumentSnapshot document) {
                         Map<String, dynamic> data2 =
                             document.data()! as Map<String, dynamic>;
-                        return ItemCard(data2["name"], data2["age"]);
+                        return ItemCard(
+                          data2["name"],
+                          data2["age"],
+                          onUpdate: () {},
+                          onDelete: () {},
+                        );
                       }).toList(),
                     );
                   } else {
