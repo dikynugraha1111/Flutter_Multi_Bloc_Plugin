@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterplugin/UI/Change_Pange.dart';
+import 'package:flutterplugin/UI/Main_On_Off.dart';
 import 'package:flutterplugin/bloc/color_bloc.dart';
 import 'package:flutterplugin/bloc/counter_bloc.dart';
 
@@ -93,7 +94,7 @@ class _MainPageState extends State<MainPage> {
                   onPressed: () {
                     Navigator.of(context).push(
                         new MaterialPageRoute(builder: (BuildContext context) {
-                      return FireBase(); //! Ganti Bung
+                      return MainOnOff(); //! Ganti Bung
                     }));
                   },
                   child: new Text(
