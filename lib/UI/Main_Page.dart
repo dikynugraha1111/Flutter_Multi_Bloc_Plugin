@@ -82,6 +82,27 @@ class _MainPageState extends State<MainPage> {
                         fontWeight: FontWeight.w600,
                         fontSize: 17.0),
                   ),
+                ),
+
+                new SizedBox(
+                  height: 20.0,
+                ),
+                new ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.white, shadowColor: Colors.black),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        new MaterialPageRoute(builder: (BuildContext context) {
+                      return FireBase(); //! Ganti Bung
+                    }));
+                  },
+                  child: new Text(
+                    "Get_Data-(Widget)",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 17.0),
+                  ),
                 )
 
                 // new Row(

@@ -49,6 +49,7 @@ class ItemCard extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       shape: CircleBorder(),
                       primary: Colors.green[900],
+                      onPrimary: Colors.green[100],
                     ),
                     child: Center(
                         child: Icon(
@@ -65,9 +66,9 @@ class ItemCard extends StatelessWidget {
                 width: 60,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      shape: CircleBorder(),
-                      primary: Colors.red[900],
-                    ),
+                        shape: CircleBorder(),
+                        primary: Colors.red[900],
+                        onPrimary: Colors.red[100]),
                     child: Center(
                         child: Icon(
                       Icons.delete,
