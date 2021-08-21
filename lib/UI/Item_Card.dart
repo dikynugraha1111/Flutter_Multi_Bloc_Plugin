@@ -56,7 +56,8 @@ class ItemCard extends StatelessWidget {
                       color: Colors.white,
                     )),
                     onPressed: () {
-                      if (onUpdate != null) onUpdate();
+                      // if (onUpdate != null)
+                      onUpdate();
                     }),
               ),
               SizedBox(
@@ -73,7 +74,7 @@ class ItemCard extends StatelessWidget {
                       color: Colors.white,
                     )),
                     onPressed: () {
-                      if (onDelete != null) onDelete();
+                      onDelete();
                     }),
               )
             ],

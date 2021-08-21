@@ -54,6 +54,7 @@ class _UpdatePageState extends State<UpdatePage> {
           new ElevatedButton(
               style: ElevatedButton.styleFrom(
                   primary: Colors.blueAccent,
+                  onPrimary: Colors.blue,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4))),
               onPressed: () {
