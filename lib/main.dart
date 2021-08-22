@@ -1,8 +1,10 @@
+import 'package:connectivity/connectivity.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterplugin/bloc/color_bloc.dart';
 import 'package:flutterplugin/bloc/counter_bloc.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'UI/Main_Page.dart';
 
@@ -30,7 +32,33 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: MainPage(),
+          home: StreamBuilder<ConnectivityResult>(
+              stream: Connectivity().onConnectivityChanged,
+              builder: (_, connect) {
+                if (connect.data == ConnectivityResult.wifi ||
+                    connect.data == ConnectivityResult.mobile) {
+                  return MainPage();
+                } else {
+                  return CheckConnection();
+                }
+              }),
         ));
+  }
+}
+
+class CheckConnection extends StatelessWidget {
+  const CheckConnection({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: new AppBar(
+        title: new Text("Problem Connection"),
+        backgroundColor: Colors.red[700],
+      ),
+      body: Center(
+        child: new Icon(MdiIcons.checkNetwork),
+      ),
+    );
   }
 }
