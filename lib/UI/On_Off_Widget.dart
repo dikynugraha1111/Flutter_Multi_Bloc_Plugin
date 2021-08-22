@@ -19,9 +19,7 @@ class _OnOffWidget1State extends State<OnOffWidget1> {
         setState(() {
           widget.onOffButton.isOn = !widget.onOffButton.isOn;
         });
-        if (widget.onStateChange != null) {
-          widget.onStateChange!();
-        }
+        widget.onStateChange!();
       },
       child: AnimatedContainer(
         duration: Duration(seconds: 1),
@@ -48,5 +46,5 @@ class _OnOffWidget1State extends State<OnOffWidget1> {
 
 class OnOffButton {
   bool isOn;
-  OnOffButton({this.isOn = false});
+  OnOffButton({required this.isOn});
 }
