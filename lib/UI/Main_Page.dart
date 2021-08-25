@@ -116,7 +116,7 @@ class _MainPageState extends State<MainPage> {
                   onPressed: () {
                     Navigator.of(context).push(
                         new MaterialPageRoute(builder: (BuildContext context) {
-                      return Isolate(); //! Ganti Bung
+                      return IsolatePage(); //! Ganti Bung
                     }));
                   },
                   child: new Text(
