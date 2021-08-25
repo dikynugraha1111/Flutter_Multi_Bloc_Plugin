@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterplugin/UI/Change_Pange.dart';
+import 'package:flutterplugin/UI/Isolate.dart';
 import 'package:flutterplugin/UI/Main_On_Off.dart';
 import 'package:flutterplugin/bloc/color_bloc.dart';
 import 'package:flutterplugin/bloc/counter_bloc.dart';
@@ -99,6 +100,27 @@ class _MainPageState extends State<MainPage> {
                   },
                   child: new Text(
                     "Get_Data-(Widget)",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 17.0),
+                  ),
+                ),
+
+                new SizedBox(
+                  height: 20.0,
+                ),
+                new ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.white, shadowColor: Colors.black),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        new MaterialPageRoute(builder: (BuildContext context) {
+                      return Isolate(); //! Ganti Bung
+                    }));
+                  },
+                  child: new Text(
+                    "Isolate",
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w600,

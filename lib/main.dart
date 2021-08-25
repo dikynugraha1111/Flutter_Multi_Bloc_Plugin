@@ -62,3 +62,5 @@ class CheckConnection extends StatelessWidget {
     );
   }
 }
+
+//! vscode://vscode.github-authentication/did-authenticate?windowid=1&code=e6084e48c0f71ebc452f&state=abb2d430-5c7e-43eb-86c3-c70284d76413 
