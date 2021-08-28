@@ -13,7 +13,7 @@ class IsolatePage extends StatefulWidget {
 //todo function isolate tanpa nilai kembalian dengan parameter
 void heavyProcess(int numb) {
   for (int counter = 0; counter < numb; counter++) {
-    //todo
+    //todo something here
   }
   print("Task Done");
 }
@@ -21,7 +21,7 @@ void heavyProcess(int numb) {
 //todo function isolate tanpa nilai kembalian tanpa parameter
 void heavyProcessWithoutParams(_) {
   for (int counter = 0; counter < 1000000000; counter++) {
-    //todo
+    //todo something here
   }
   print("Task Done");
 }
