@@ -5,7 +5,8 @@ abstract class UserState extends Equatable {
   const UserState(this.user);
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [user];
+  //todo Ingat Props harus di isi boiii
 }
 
 class UserInitial extends UserState {

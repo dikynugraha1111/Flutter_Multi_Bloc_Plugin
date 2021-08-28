@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterplugin/bloc/user_bloc.dart';
 
-class BlocWithSelector extends StatelessWidget {
-  const BlocWithSelector({Key? key}) : super(key: key);
+class BlockWithSelector extends StatelessWidget {
+  const BlockWithSelector({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class BlocWithSelector extends StatelessWidget {
             selector: (state) => state.user.name,
             builder: (context, nameChange) {
               print("App Bar REFRESH");
-              return new Text("Hallo $nameChange");
+              return Text("Hallo $nameChange");
             }),
         // title: new Text("Hallo "),
       ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterplugin/bloc/color_bloc.dart';
 import 'package:flutterplugin/bloc/counter_bloc.dart';
+import 'package:flutterplugin/bloc/user_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'UI/Main_Page.dart';
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider<ColorBloc>(
             create: (context) => ColorBloc(),
+          ),
+          BlocProvider<UserBloc>(
+            create: (context) => UserBloc(),
           ),
         ],
         child: MaterialApp(
